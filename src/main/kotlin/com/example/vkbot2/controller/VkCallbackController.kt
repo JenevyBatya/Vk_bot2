@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*
 import org.springframework.web.client.RestTemplate
 
 @RestController
-@RequestMapping("/callback")
+@RequestMapping("/")
 class VkCallbackController {
 
     @Value("\${vk.confirmation}")
@@ -21,10 +21,6 @@ class VkCallbackController {
     @Value("\${vk.api.endpoint}")
     lateinit var apiEndpoint: String
 
-    @GetMapping
-    fun hi(): String {
-        return "hi"
-    }
 
     @PostMapping
     fun handleCallback(@RequestBody vkMessage: VkMessage): String {
